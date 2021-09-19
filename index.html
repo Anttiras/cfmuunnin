@@ -1,20 +1,65 @@
 <!DOCTYPE html>
-<html>
+<html lang="fi">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width initial-scale=1.0">
         <title>°F-°C -muunnin</title>
-        <script type="text/javascript" src="index.js" defer></script>
+        <script src="index2.js" defer></script>
+        <style>
+            body {
+                background-image: url("fireAndIce3.jpg");
+                background-repeat: no-repeat;
+                background-size: initial;
+            }
+
+            h1 {
+            color: rgb(180, 39, 39);
+            }
+            
+            .grid-container {
+                display: grid;
+                grid-template-rows: 25vh 25vh;
+                justify-content: center;
+                
+            }
+
+                .div1 {
+                display: grid;
+                grid-row: 1/2;
+                border-radius: 400px;
+                background-color: #e3ee4fce;
+                text-align: center;
+                padding: 20px;
+
+                }
+                .div2 {
+                display: grid;
+                grid-row: 2/3;
+                text-align: center;
+                padding: 40px;
+
+                }
+
+        </style>
     </head>
     <body>
         <h1>°F-°C -muunnin</h1>
-        <form>
-            <label>Fahrenheitit:</label><br>
-            <input type="number"><br><br>
-            <button type="button">Muunna:</button>
-        </form>
-        <p>
-            <span id="Fahrenheitit">?</span> = <span id="celcius">?</span>
-        </p>
+        <div class="grid-container">
+            <div class="div1">
+            <form id="lämpöLaskuri" onsubmit="laskeLämpö(); return false">
+                <h2>°F-°C -muunnin</h2>
+                <input name="lämpötila" id="lämpötila" type="number"> 
+                <select name="valinta" id="valinta">
+                    <option value="cel">Celsiusta</option>
+                    <option value="fah">Fahrenheitiä</option>
+                </select>
+                <input name="lämpötila" type="submit"> <br><br>
+                <span id="tulosalue"></span>
+            </form>
+            </div>
+            <div class="div2">
+                <img src="fc.jpg" alt="nörtti" width="400" height="150">
+            </div>
+        </div>
     </body>
 </html>
