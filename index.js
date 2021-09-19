@@ -1,18 +1,28 @@
-const fahrenheitSyöte = document.querySelector('input');
-const fahrenheitTuloste = document.querySelector('#fahrenheit');
-const CelciusTuloste = document.querySelector('#celcius');
-const muunnaButton = document.querySelector('button');
+function laskeLämpö() {
+    function celToFah(celsius) {
+        var fahrenheit = Math.round((celsius * (9/5)) + 32);
+        return fahrenheit;
+    }
 
-function fahrenheitCelciukseksi(fahrenheitSyote) {
-    let celsius = fahrenheit;
-    return celcius;
+    function fahToCel(fahrenheit) {
+        var celsius = Math.round((fahrenheit - 32) * (5/9));
+        return celsius;
+    }
+
+
+    var valittuLämpö = document.getElementById("valinta");
+    var valinta_arvo = valittuLämpö.options[valittuLämpö.selectedIndex].value;
+
+    var lämpö = document.getElementById("lämpötila").value;
+
+    var tulos;
+ 
+    if (valinta_arvo == "cel") {
+        tulos = celToFah(lämpö);
+        document.getElementById("tulosalue").innerHTML = "= " + tulos + " Fahrenheitiä";
+    } else {
+        tulos = fahToCel(lämpö);
+        document.getElementById("tulosalue").innerHTML = "= " + tulos + " Celsiusta";
+    }
+
 }
-
-function muunna() {
-    let syote = fahrenheitSyöte.value;
-    fahrenheitTuloste.textContent = syote;
-
-    CelciusTuloste.textContent = fahrenheitCelciukseksi(syote);
-}
-
-muunnaButton.addEventListener('click', muunna);
